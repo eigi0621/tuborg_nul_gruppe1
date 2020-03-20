@@ -13,78 +13,69 @@ let isHover = false
 let mouseDown = false
 const init_pointer = (options) => {
 
-	window.onmousemove = (mouse) => {
-		mouseX = mouse.clientX
-		mouseY = mouse.clientY
-	}
+  window.onmousemove = (mouse) => {
+    mouseX = mouse.clientX
+    mouseY = mouse.clientY
+  }
 
-	window.onmousedown = (mouse) => {
-		mouseDown = true
-	}
+  window.onmousedown = (mouse) => {
+    mouseDown = true
+  }
 
-	window.onmouseup = (mouse) => {
-		mouseDown = false
-	}
+  window.onmouseup = (mouse) => {
+    mouseDown = false
+  }
 
-	const trace = (a, b, n) => {
-		return (1 - n) * a + n * b;
-	}
-	window["trace"] = trace
+  const trace = (a, b, n) => {
+    return (1 - n) * a + n * b;
+  }
+  window["trace"] = trace
 
-	const getOption = (option) => {
-		let defaultObj = {
-			pointerColor: "#FAC177",
-			ringSize: 10,
-			ringClickSize: (options["ringSize"] || 15) - 10,
-		}
-		if (options[option] == undefined) {
-			return defaultObj[option]
-		} else {
-			return options[option]
-		}
-	}
+  const getOption = (option) => {
+    let defaultObj = {
+      pointerColor: "#FAC177",
+      ringSize: 10,
+      ringClickSize: (options["ringSize"] || 15) - 10,
+    }
+    if (options[option] == undefined) {
+      return defaultObj[option]
+    } else {
+      return options[option]
+    }
+  }
 
-	const render = () => {
-		ringX = trace(ringX, mouseX, 0.26)
-		ringY = trace(ringY, mouseY, 0.26)
+  const render = () => {
+    ringX = trace(ringX, mouseX, 0.26)
+    ringY = trace(ringY, mouseY, 0.26)
 
-		if (mouseDown) {
-			ring.style.padding = getOption("ringClickSize") + "px"
-		} else {
-			ring.style.padding = getOption("ringSize") + "px"
-		}
+    if (mouseDown) {
+      ring.style.padding = getOption("ringClickSize") + "px"
+    } else {
+      ring.style.padding = getOption("ringSize") + "px"
+    }
 
-		if (document.querySelector(".p-action-click:hover")) {
-			pointer.style.borderColor = "#FAC177";
-			pointer.style.borderRadius = "20px";
-			pointer.style.border = "3px solid #FAC177";
-			ring.style.borderColor = "#FAC177";
-			ring.style.border = "3px solid #FAC177";
-			ring.style.backgroundColor = "#fff";
-			ring.style.borderRadius = "20px";
-			ring.style.mixBlendMode = "exclusion";
+    if (document.querySelector(".p-action-click:hover")) {
+      pointer.style.borderColor = "#FAC177";
 
-			isHover = true
+      isHover = true
 
-		} else {
-			pointer.style.borderColor = "#FAC177";
-			pointer.style.border = "2px solid #FAC177";
-			pointer.style.borderRadius = "20px";
-			ring.style.border = "2px solid #FAC177";
-			ring.style.borderRadius = "20px";
-			ring.style.borderColor = "#FAC177";
-			ring.style.mixBlendMode = "inherit";
-			ring.style.backgroundColor = "rgba(255, 255, 255, 0)";
+    } else {
+      pointer.style.border = "2px solid #fff";
+      ring.style.borderRadius = "20px";
+      ring.style.backgroundColor = "#FAC177";
 
-			isHover = false;
-		}
+      isHover = false;
+    }
 
 
 
-		pointer.style.transform = `translate(${mouseX}px, ${mouseY}px)`
-		ring.style.transform = `translate(${ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px, ${ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px)`
+    pointer.style.transform = `translate(${mouseX}px, ${mouseY}px)`
+    ring.style.transform = `translate(${ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px, ${ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px)`
 
-		requestAnimationFrame(render)
-	}
-	requestAnimationFrame(render)
+    const question_box = document.querySelector(".quiz_wrap")
+    question_box.style.transform = `translate(${(ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))) / 100}px, ${(ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))) / 100}px)`
+
+    requestAnimationFrame(render)
+  }
+  requestAnimationFrame(render)
 }
