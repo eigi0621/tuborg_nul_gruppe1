@@ -50,13 +50,36 @@ function visToej() {
 
     dataFill.appendChild(klon); //indsæt klonen i databeholderen med appendChild
 
+    document.querySelector(".inner_question_wrap").addEventListener("click", nextQuestion);
   });
 }
 
 
 
 function nextQuestion() {
+  console.log("nextQuestion");
 
+  document.querySelector(".inner_overflow").classList.remove("question_in");
+  document.querySelector(".inner_question_wrap").classList.remove("question_in2");
+  document.querySelector(".spg_nr_wrap").classList.remove("question_in3");
+  document.querySelector(".spg_nr").classList.remove("question_in4");
+
+  document.querySelector(".inner_overflow").classList.add("question_away");
+  document.querySelector(".inner_question_wrap").classList.add("question_away2");
+  document.querySelector(".spg_nr_wrap").classList.add("question_away3");
+  document.querySelector(".spg_nr").classList.add("question_away4");
+
+  setTimeout(function () {
+    document.querySelector(".inner_overflow").classList.remove("question_away");
+    document.querySelector(".inner_question_wrap").classList.remove("question_away2");
+    document.querySelector(".spg_nr_wrap").classList.remove("question_away3");
+    document.querySelector(".spg_nr").classList.remove("question_away4");
+
+    document.querySelector(".inner_overflow").classList.add("question_in");
+    document.querySelector(".inner_question_wrap").classList.add("question_in2");
+    document.querySelector(".spg_nr_wrap").classList.add("question_in3");
+    document.querySelector(".spg_nr").classList.add("question_in4");
+  }, 1000)
 }
 
 function previousQuestion() {
