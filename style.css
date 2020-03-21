@@ -61,9 +61,9 @@ h1 {
 h2 {
   font-family: paralucent, sans-serif;
   font-weight: 300;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #FFF;
 }
 
@@ -102,11 +102,12 @@ header {
   display: flex;
   justify-content: center;
   z-index: 100;
+  top: 0;
+  left: 0;
 }
 
 nav {
   width: 100vw;
-  max-width: 1400px;
   display: flex;
   justify-content: space-between;
 }
@@ -115,10 +116,6 @@ nav a {
   display: inline-block;
   padding: 5px;
   margin: 0 10px;
-}
-
-nav div {
-  margin: 0 -15px;
 }
 
 nav a h3 {
@@ -190,7 +187,6 @@ nav a h3 {
   width: 100vw;
   display: flex;
   justify-content: center;
-  position: fixed;
 }
 
 /*.question_number {
@@ -205,48 +201,60 @@ nav a h3 {
 }*/
 
 
-.question_wrap:after {
-  content: "Spørgsmål 1 ud af 10";
+.spg_nr {
   width: 100%;
   height: 100%;
-  font-size: 1rem;
+  font-size: .7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: #9C9E9F;
   font-family: paralucent, sans-serif;
   font-weight: 400;
   font-style: normal;
-  line-height: 0;
-  margin: -50px 0 0px 0px;
-  padding-top: 0px;
   background-color: rgba(0, 0, 0, 0);
   display: inline-block;
-  z-index: -1;
-  transform: rotate(-90deg) translate(365px, -420px);
+  transform-origin: top left;
+  transform: translate(-30px, 28px) rotate(-90deg);
   transition: 1s cubic-bezier(.4, .7, 0, 1);
 }
 
 .question_wrap {
   width: calc(100vw - 40px);
-  max-width: 800px;
+  max-width: 600px;
   background-color: #093A82;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   box-shadow: 0px 30px 40px rgba(9, 58, 130, 0.5);
   transition: 1s cubic-bezier(.4, .7, 0, 1);
-  transform: scale(1) translateX(-100px);
+  transform: scale(1) translateX(-200px);
   z-index: 1;
+}
+
+.question_wrap:nth-child(2) {
+  visibility: hidden;
+}
+
+.question_wrap:nth-child(1) {
+  visibility: visible;
+}
+
+.inner_question_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .question_wrap:hover {
   box-shadow: 0px 30px 120px -0px rgba(9, 58, 130, .5);
-  transform: scale(1.02) translateX(-100px);
+  transform: scale(1.02) translateX(-200px);
 }
 
-.question_wrap:hover:after {
-  transform: scale(.98) rotate(-90deg) translate(365px, -420px);
+.question_wrap:hover .spg_nr {
+  transform: scale(.98) translate(-20px, 28px) rotate(-90deg);
 }
 
 .question_wrap h2 {
-  padding: 30px;
-  margin: -70px 0 0 0;
+  padding: 30px 30px 20px 30px;
+  margin: 0;
 }
 
 .svarmulighed_wrap {
@@ -257,17 +265,17 @@ nav a h3 {
 .svarmulighed_wrap p {
   color: #FAC177;
   display: inline-block;
-  margin: 15px 0;
-  line-height: 1.9rem;
-  font-size: 2rem;
+  margin: 10px 0;
+  line-height: 1.4rem;
+  font-size: 1.2rem;
   opacity: 0.5;
   transition: .3s cubic-bezier(.3, 0, .2, 1);
 }
 
 .tick_box {
-  width: 30px;
-  height: 30px;
-  margin: 15px 35px;
+  width: 20px;
+  height: 20px;
+  margin: 10px 20px 10px 30px;
   display: inline-block;
   border: 2px solid #FAC177;
   border-radius: 20px;
@@ -294,14 +302,14 @@ nav a h3 {
 }
 
 .svarmulighed_wrap:hover .tick_box div {
-  width: 16px;
-  height: 16px;
+  width: 8px;
+  height: 8px;
   opacity: 1;
   box-shadow: 0px 0px 20px rgba(250, 193, 119, 0.6);
 }
 
 .svarmulighed_wrap:hover p {
-  margin: 15px -10px;
+  margin: 10px -5px;
 }
 
 .svarmulighed_wrap:hover p {

@@ -76,7 +76,6 @@ const init_pointer = (options) => {
 
 
     document.querySelector(".quiz_wrap").style.transform = `translate(${smooth1_x / 100}px, ${smooth1_y / 100}px)`;
-
     requestAnimationFrame(render)
   }
   requestAnimationFrame(render)

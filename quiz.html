@@ -39,55 +39,52 @@
       <div class="quiz_wrap">
         <div class="question_inner">
           <div class="space4"></div>
-          <div class="question_wrap">
-            <h2>Hvor meget tid bruger du på sport om ugen?</h2>
-            <div class="svar_wrap">
-              <div class="svarmulighed_wrap">
-                <div class="tick_box">
-                  <div></div>
+          <div id="data_fill" class="question_wrap"></div>
+
+          <template id="template">
+            <div class="inner_question_wrap">
+              <h2></h2>
+              <div class="svar_wrap">
+                <div class="svarmulighed_wrap svarmulighed1">
+                  <div class="tick_box">
+                    <div></div>
+                  </div>
+                  <p></p>
                 </div>
-                <p>0-1 time</p>
-              </div>
-              <div class="svarmulighed_wrap">
-                <div class="tick_box">
-                  <div></div>
+                <div class="svarmulighed_wrap svarmulighed2">
+                  <div class="tick_box">
+                    <div></div>
+                  </div>
+                  <p></p>
                 </div>
-                <p>1-2 timer</p>
-              </div>
-              <div class="svarmulighed_wrap">
-                <div class="tick_box">
-                  <div></div>
+                <div class="svarmulighed_wrap svarmulighed3">
+                  <div class="tick_box">
+                    <div></div>
+                  </div>
+                  <p></p>
                 </div>
-                <p>2-4 timer</p>
-              </div>
-              <div class="svarmulighed_wrap">
-                <div class="tick_box">
-                  <div></div>
+                <div class="svarmulighed_wrap svarmulighed4">
+                  <div class="tick_box">
+                    <div></div>
+                  </div>
+                  <p></p>
                 </div>
-                <p>4-7 timer</p>
-              </div>
-              <div class="svarmulighed_wrap">
-                <div class="tick_box">
-                  <div></div>
+                <div class="svarmulighed_wrap svarmulighed5">
+                  <div class="tick_box">
+                    <div></div>
+                  </div>
+                  <p></p>
                 </div>
-                <p>Mere end 7 timer</p>
               </div>
+              <p class="spg_nr"></p>
             </div>
-          </div>
+            <div class="space4"></div>
+          </template>
+
         </div>
       </div>
     </section>
   </main>
   <script src="pointer.js"></script>
   <script src="main_script.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", start);
-
-    function start() {
-      console.log("start");
-
-      //start cursor script
-      init_pointer({});
-    }
-  </script>
 </body></html>
