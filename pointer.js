@@ -68,12 +68,14 @@ const init_pointer = (options) => {
     }
 
 
+    let smooth1_x = ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"));
+    let smooth1_y = ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"));
 
     pointer.style.transform = `translate(${mouseX}px, ${mouseY}px)`
-    ring.style.transform = `translate(${ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px, ${ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))}px)`
+    ring.style.transform = `translate(${smooth1_x}px, ${smooth1_y}px)`
 
-    const question_box = document.querySelector(".quiz_wrap")
-    question_box.style.transform = `translate(${(ringX - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))) / 100}px, ${(ringY - (mouseDown ? getOption("ringClickSize") : getOption("ringSize"))) / 100}px)`
+
+    document.querySelector(".quiz_wrap").style.transform = `translate(${smooth1_x / 100}px, ${smooth1_y / 100}px)`;
 
     requestAnimationFrame(render)
   }
