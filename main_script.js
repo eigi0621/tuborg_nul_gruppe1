@@ -52,3 +52,13 @@ function visToej() {
 
   });
 }
+
+
+
+function nextQuestion() {
+
+}
+
+function previousQuestion() {
+
+}
