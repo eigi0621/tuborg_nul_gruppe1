@@ -3,6 +3,7 @@ const kategori = urlParams.get("kategori");
 let endpoint = "https://spreadsheets.google.com/feeds/list/1pA_1-0vsMhF4a11N38gCRR7T7gee3YCI09RojMyq1QY/od6/public/values?alt=json";
 let toej = [];
 let filter = kategori;
+let point = 0;
 
 document.addEventListener("DOMContentLoaded", start);
 
@@ -48,38 +49,111 @@ function visToej() {
     klon.querySelector(".svarmulighed5 p").textContent = `${element.gsx$valg5.$t}`;
     klon.querySelector(".spg_nr").textContent = `${element.gsx$spgnr.$t} 10`;
 
-    dataFill.appendChild(klon); //indsæt klonen i databeholderen med appendChild
+    klon.querySelector(".svarmulighed1").addEventListener("click", () => {
+      console.log("svar1");
+      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
+        svar.classList.add("on_choice5");
+      })
+      document.querySelector(".svarmulighed1").classList.remove("on_choice5");
+      document.querySelector(".svarmulighed1 p").classList.add("on_choice2");
+      document.querySelector(".svarmulighed1 .tick_box div").classList.add("on_choice3");
+      document.querySelector(".svarmulighed1 .tick_box").classList.add("on_choice4");
+      point += 1;
+      nextQuestion();
+    });
+    klon.querySelector(".svarmulighed2").addEventListener("click", () => {
+      console.log("svar1");
+      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
+        svar.classList.add("on_choice5");
+      })
+      document.querySelector(".svarmulighed2").classList.remove("on_choice5");
+      document.querySelector(".svarmulighed2 p").classList.add("on_choice2");
+      document.querySelector(".svarmulighed2 .tick_box div").classList.add("on_choice3");
+      document.querySelector(".svarmulighed2 .tick_box").classList.add("on_choice4");
+      point += 1;
+      nextQuestion();
+    });
+    klon.querySelector(".svarmulighed3").addEventListener("click", () => {
+      console.log("svar1");
+      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
+        svar.classList.add("on_choice5");
+      })
+      document.querySelector(".svarmulighed3").classList.remove("on_choice5");
+      document.querySelector(".svarmulighed3 p").classList.add("on_choice2");
+      document.querySelector(".svarmulighed3 .tick_box div").classList.add("on_choice3");
+      document.querySelector(".svarmulighed3 .tick_box").classList.add("on_choice4");
+      point += 1;
+      nextQuestion();
+    });
+    klon.querySelector(".svarmulighed4").addEventListener("click", () => {
+      console.log("svar1");
+      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
+        svar.classList.add("on_choice5");
+      })
+      document.querySelector(".svarmulighed4").classList.remove("on_choice5");
+      document.querySelector(".svarmulighed4 p").classList.add("on_choice2");
+      document.querySelector(".svarmulighed4 .tick_box div").classList.add("on_choice3");
+      document.querySelector(".svarmulighed4 .tick_box").classList.add("on_choice4");
+      point += 1;
+      nextQuestion();
+    });
+    klon.querySelector(".svarmulighed5").addEventListener("click", () => {
+      console.log("svar1");
+      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
+        svar.classList.add("on_choice5");
+      })
+      document.querySelector(".svarmulighed5").classList.remove("on_choice5");
+      document.querySelector(".svarmulighed5 p").classList.add("on_choice2");
+      document.querySelector(".svarmulighed5 .tick_box div").classList.add("on_choice3");
+      document.querySelector(".svarmulighed5 .tick_box").classList.add("on_choice4");
+      point += 1;
+      nextQuestion();
+    });
 
-    document.querySelector(".inner_question_wrap").addEventListener("click", nextQuestion);
+    dataFill.appendChild(klon); //indsæt klonen i databeholderen med appendChild
   });
 }
 
 
 
 function nextQuestion() {
-  console.log("nextQuestion");
+  console.log(point);
 
-  document.querySelector(".inner_overflow").classList.remove("question_in");
-  document.querySelector(".inner_question_wrap").classList.remove("question_in2");
-  document.querySelector(".spg_nr_wrap").classList.remove("question_in3");
-  document.querySelector(".spg_nr").classList.remove("question_in4");
 
-  document.querySelector(".inner_overflow").classList.add("question_away");
-  document.querySelector(".inner_question_wrap").classList.add("question_away2");
-  document.querySelector(".spg_nr_wrap").classList.add("question_away3");
-  document.querySelector(".spg_nr").classList.add("question_away4");
+  document.querySelector(".scale_choice").classList.add("on_choice");
 
   setTimeout(function () {
-    document.querySelector(".inner_overflow").classList.remove("question_away");
-    document.querySelector(".inner_question_wrap").classList.remove("question_away2");
-    document.querySelector(".spg_nr_wrap").classList.remove("question_away3");
-    document.querySelector(".spg_nr").classList.remove("question_away4");
+    document.querySelector(".inner_overflow").classList.remove("question_in");
+    document.querySelector(".inner_question_wrap").classList.remove("question_in2");
+    document.querySelector(".move_quiz").classList.remove("question_in3");
+    document.querySelector(".spg_nr").classList.remove("question_in4");
 
-    document.querySelector(".inner_overflow").classList.add("question_in");
-    document.querySelector(".inner_question_wrap").classList.add("question_in2");
-    document.querySelector(".spg_nr_wrap").classList.add("question_in3");
-    document.querySelector(".spg_nr").classList.add("question_in4");
-  }, 1000)
+    document.querySelector(".inner_overflow").classList.add("question_away");
+    document.querySelector(".inner_question_wrap").classList.add("question_away2");
+    document.querySelector(".move_quiz").classList.add("question_away3");
+    document.querySelector(".spg_nr").classList.add("question_away4");
+
+    setTimeout(function () {
+      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
+        svar.classList.remove("on_choice5");
+        svar.querySelector("p").classList.remove("on_choice2");
+        svar.querySelector(".tick_box div").classList.remove("on_choice3");
+        svar.querySelector(".tick_box").classList.remove("on_choice4");
+      })
+
+      document.querySelector(".scale_choice").classList.remove("on_choice");
+
+      document.querySelector(".inner_overflow").classList.remove("question_away");
+      document.querySelector(".inner_question_wrap").classList.remove("question_away2");
+      document.querySelector(".move_quiz").classList.remove("question_away3");
+      document.querySelector(".spg_nr").classList.remove("question_away4");
+
+      document.querySelector(".inner_overflow").classList.add("question_in");
+      document.querySelector(".inner_question_wrap").classList.add("question_in2");
+      document.querySelector(".move_quiz").classList.add("question_in3");
+      document.querySelector(".spg_nr").classList.add("question_in4");
+    }, 1000)
+  }, 300)
 }
 
 function previousQuestion() {
