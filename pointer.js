@@ -74,8 +74,12 @@ const init_pointer = (options) => {
     pointer.style.transform = `translate(${mouseX}px, ${mouseY}px)`
     ring.style.transform = `translate(${smooth1_x}px, ${smooth1_y}px)`
 
+    setTimeout(function () {
+      document.querySelectorAll(".spg_section").forEach((dialog) => {
+        dialog.style.transform = `translate(${mouseX / 100}px, ${mouseY / 100}px)`;
+      })
+    }, 1000)
 
-    document.querySelector(".quiz_wrap").style.transform = `translate(${smooth1_x / 100}px, ${smooth1_y / 100}px)`;
     requestAnimationFrame(render)
   }
   requestAnimationFrame(render)

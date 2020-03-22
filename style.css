@@ -185,8 +185,37 @@ nav a h3 {
 
 #main_container {
   width: 100vw;
+}
+
+.splash_wrap {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+
+
+
+
+
+.question_wrap {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+.spg_section {
+  position: absolute;
+  top: 100px;
+  visibility: visible;
 }
 
 .spg_nr {
@@ -305,10 +334,17 @@ nav a h3 {
 }
 
 
+.spg_section {
+  visibility: hidden;
+}
 
 
-
-
+.start_quiz {
+  background-color: #093A82;
+  margin: 10px;
+  padding: 30px;
+  height: 100px;
+}
 
 
 
@@ -393,17 +429,6 @@ nav a h3 {
 
 
 /*-------TRANSITION ANIMATIONS---------*/
-
-.on_choice5 {
-  animation: on_choice5-kf .3s cubic-bezier(0.61, 1, 0.88, 1) both;
-}
-
-@keyframes on_choice5-kf {
-  100% {
-    opacity: .25;
-  }
-}
-
 .on_choice {
   animation: on_choice-kf .3s cubic-bezier(0.61, 1, 0.88, 1) both;
 }
