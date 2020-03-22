@@ -90,13 +90,22 @@ function removeQuestions() {
   document.querySelectorAll(".spg_section").forEach((spgml) => {
     spgml.querySelector(`.inner_overflow`).classList.remove("question_in");
     spgml.querySelector(`.inner_question_wrap`).classList.remove("question_in2");
-    spgml.querySelector(`.move_quiz`).classList.remove("question_in3");
+    spgml.querySelector(`.move_quiz`).classList.remove("question_in3a");
     spgml.querySelector(`.spg_nr`).classList.remove("question_in4");
 
     spgml.querySelector(`.inner_overflow`).classList.add("question_away");
     spgml.querySelector(`.inner_question_wrap`).classList.add("question_away2");
-    spgml.querySelector(`.move_quiz`).classList.add("question_away3");
+    spgml.querySelector(`.move_quiz`).classList.add("question_away3a");
     spgml.querySelector(`.spg_nr`).classList.add("question_away4");
+  })
+  document.querySelectorAll(".img_section").forEach((imgsc) => {
+    imgsc.querySelector(`.inner_overflow2`).classList.remove("question_in");
+    imgsc.querySelector(`.inner_question_wrap2`).classList.remove("question_in2");
+    imgsc.querySelector(`.move_quiz2`).classList.remove("question_in3b");
+
+    imgsc.querySelector(`.inner_overflow2`).classList.add("question_away");
+    imgsc.querySelector(`.inner_question_wrap2`).classList.add("question_away2");
+    imgsc.querySelector(`.move_quiz2`).classList.add("question_away3b");
   })
 }
 
@@ -118,19 +127,22 @@ function startQuestion() {
 
     this_spg.querySelector(`.inner_overflow`).classList.remove("question_away");
     this_spg.querySelector(`.inner_question_wrap`).classList.remove("question_away2");
-    this_spg.querySelector(`.move_quiz`).classList.remove("question_away3");
+    this_spg.querySelector(`.move_quiz`).classList.remove("question_away3a");
     this_spg.querySelector(`.spg_nr`).classList.remove("question_away4");
-    this_spg2.querySelector(`.inner_overflow2`).classList.remove("question_away");
-    this_spg2.querySelector(`.inner_question_wrap2`).classList.remove("question_away2");
-    this_spg2.querySelector(`.move_quiz2`).classList.remove("question_away3");
 
     this_spg.querySelector(`.inner_overflow`).classList.add("question_in");
     this_spg.querySelector(`.inner_question_wrap`).classList.add("question_in2");
-    this_spg.querySelector(`.move_quiz`).classList.add("question_in3");
+    this_spg.querySelector(`.move_quiz`).classList.add("question_in3a");
     this_spg.querySelector(`.spg_nr`).classList.add("question_in4");
+
+
+    this_spg2.querySelector(`.inner_overflow2`).classList.remove("question_away");
+    this_spg2.querySelector(`.inner_question_wrap2`).classList.remove("question_away2");
+    this_spg2.querySelector(`.move_quiz2`).classList.remove("question_away3b");
+
     this_spg2.querySelector(`.inner_overflow2`).classList.add("question_in");
     this_spg2.querySelector(`.inner_question_wrap2`).classList.add("question_in2");
-    this_spg2.querySelector(`.move_quiz2`).classList.add("question_in3");
+    this_spg2.querySelector(`.move_quiz2`).classList.add("question_in3b");
   }, 1000)
 }
 
@@ -143,23 +155,25 @@ function nextQuestion() {
     let this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
     this_spg.classList.add("on_choice");
 
+    this_spg2.querySelector(`.inner_overflow2`).classList.remove("question_in");
+    this_spg2.querySelector(`.inner_question_wrap2`).classList.remove("question_in2");
+    this_spg2.querySelector(`.move_quiz2`).classList.remove("question_in3b");
+
+    this_spg2.querySelector(`.inner_overflow2`).classList.add("question_away");
+    this_spg2.querySelector(`.inner_question_wrap2`).classList.add("question_away2");
+    this_spg2.querySelector(`.move_quiz2`).classList.add("question_away3b");
 
     setTimeout(function () {
       this_spg.querySelector(`.inner_overflow`).classList.remove("question_in");
       this_spg.querySelector(`.inner_question_wrap`).classList.remove("question_in2");
-      this_spg.querySelector(`.move_quiz`).classList.remove("question_in3");
+      this_spg.querySelector(`.move_quiz`).classList.remove("question_in3a");
       this_spg.querySelector(`.spg_nr`).classList.remove("question_in4");
-      this_spg2.querySelector(`.inner_overflow2`).classList.remove("question_in");
-      this_spg2.querySelector(`.inner_question_wrap2`).classList.remove("question_in2");
-      this_spg2.querySelector(`.move_quiz2`).classList.remove("question_in3");
 
       this_spg.querySelector(`.inner_overflow`).classList.add("question_away");
       this_spg.querySelector(`.inner_question_wrap`).classList.add("question_away2");
-      this_spg.querySelector(`.move_quiz`).classList.add("question_away3");
+      this_spg.querySelector(`.move_quiz`).classList.add("question_away3a");
       this_spg.querySelector(`.spg_nr`).classList.add("question_away4");
-      this_spg2.querySelector(`.inner_overflow2`).classList.add("question_away");
-      this_spg2.querySelector(`.inner_question_wrap2`).classList.add("question_away2");
-      this_spg2.querySelector(`.move_quiz2`).classList.add("question_away3");
+
 
       spg++;
       spg++;
@@ -181,19 +195,22 @@ function nextQuestion() {
 
         this_spg.querySelector(`.inner_overflow`).classList.remove("question_away");
         this_spg.querySelector(`.inner_question_wrap`).classList.remove("question_away2");
-        this_spg.querySelector(`.move_quiz`).classList.remove("question_away3");
+        this_spg.querySelector(`.move_quiz`).classList.remove("question_away3a");
         this_spg.querySelector(`.spg_nr`).classList.remove("question_away4");
-        this_spg2.querySelector(`.inner_overflow2`).classList.remove("question_away");
-        this_spg2.querySelector(`.inner_question_wrap2`).classList.remove("question_away2");
-        this_spg2.querySelector(`.move_quiz2`).classList.remove("question_away3");
 
         this_spg.querySelector(`.inner_overflow`).classList.add("question_in");
         this_spg.querySelector(`.inner_question_wrap`).classList.add("question_in2");
-        this_spg.querySelector(`.move_quiz`).classList.add("question_in3");
+        this_spg.querySelector(`.move_quiz`).classList.add("question_in3a");
         this_spg.querySelector(`.spg_nr`).classList.add("question_in4");
+
+
+        this_spg2.querySelector(`.inner_overflow2`).classList.remove("question_away");
+        this_spg2.querySelector(`.inner_question_wrap2`).classList.remove("question_away2");
+        this_spg2.querySelector(`.move_quiz2`).classList.remove("question_away3b");
+
         this_spg2.querySelector(`.inner_overflow2`).classList.add("question_in");
         this_spg2.querySelector(`.inner_question_wrap2`).classList.add("question_in2");
-        this_spg2.querySelector(`.move_quiz2`).classList.add("question_in3");
+        this_spg2.querySelector(`.move_quiz2`).classList.add("question_in3b");
       }, 1000)
     }, 300)
   }

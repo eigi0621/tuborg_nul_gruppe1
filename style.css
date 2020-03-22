@@ -455,6 +455,7 @@ nav a h3 {
 .move_quiz2 {
   width: 400px;
   height: 400px;
+  transform: translateX(10vw);
 }
 
 .inner_question_wrap2 {
@@ -648,13 +649,23 @@ nav a h3 {
   }
 }
 
-.question_away3 {
-  animation: question_away3-kf 1s cubic-bezier(0.5, 0, 0.75, 0) both;
+.question_away3a {
+  animation: question_away3a-kf 1s cubic-bezier(0.5, 0, 0.75, 0) both;
 }
 
-@keyframes question_away3-kf {
+@keyframes question_away3a-kf {
   100% {
     transform: translateX(-20vw);
+  }
+}
+
+.question_away3b {
+  animation: question_away3b-kf 1s cubic-bezier(0.5, 0, 0.75, 0) both;
+}
+
+@keyframes question_away3b-kf {
+  100% {
+    transform: translateX(0vw);
   }
 }
 
@@ -698,17 +709,32 @@ nav a h3 {
   }
 }
 
-.question_in3 {
-  animation: question_in3-kf 1s cubic-bezier(0.25, 1, 0.5, 1) both;
+.question_in3a {
+  animation: question_in3a-kf 1s cubic-bezier(0.25, 1, 0.5, 1) both;
 }
 
-@keyframes question_in3-kf {
+@keyframes question_in3a-kf {
   0% {
     transform: translateX(60vw);
   }
 
   100% {
     transform: translateX(-10vw);
+  }
+}
+
+
+.question_in3b {
+  animation: question_in3b-kf 1s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+@keyframes question_in3b-kf {
+  0% {
+    transform: translateX(60vw);
+  }
+
+  100% {
+    transform: translateX(10vw);
   }
 }
 
