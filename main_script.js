@@ -50,65 +50,33 @@ function visToej() {
     klon.querySelector(".spg_nr").textContent = `${element.gsx$spgnr.$t} 10`;
 
     klon.querySelector(".svarmulighed1").addEventListener("click", () => {
-      console.log("svar1");
-      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
-        svar.classList.add("on_choice5");
-      })
-      document.querySelector(".svarmulighed1").classList.remove("on_choice5");
-      document.querySelector(".svarmulighed1 p").classList.add("on_choice2");
-      document.querySelector(".svarmulighed1 .tick_box div").classList.add("on_choice3");
-      document.querySelector(".svarmulighed1 .tick_box").classList.add("on_choice4");
       point += 1;
-      nextQuestion();
-    });
+    })
     klon.querySelector(".svarmulighed2").addEventListener("click", () => {
-      console.log("svar1");
-      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
-        svar.classList.add("on_choice5");
-      })
-      document.querySelector(".svarmulighed2").classList.remove("on_choice5");
-      document.querySelector(".svarmulighed2 p").classList.add("on_choice2");
-      document.querySelector(".svarmulighed2 .tick_box div").classList.add("on_choice3");
-      document.querySelector(".svarmulighed2 .tick_box").classList.add("on_choice4");
-      point += 1;
-      nextQuestion();
-    });
+      point += 2;
+    })
     klon.querySelector(".svarmulighed3").addEventListener("click", () => {
-      console.log("svar1");
-      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
-        svar.classList.add("on_choice5");
-      })
-      document.querySelector(".svarmulighed3").classList.remove("on_choice5");
-      document.querySelector(".svarmulighed3 p").classList.add("on_choice2");
-      document.querySelector(".svarmulighed3 .tick_box div").classList.add("on_choice3");
-      document.querySelector(".svarmulighed3 .tick_box").classList.add("on_choice4");
-      point += 1;
-      nextQuestion();
-    });
+      point += 3;
+    })
     klon.querySelector(".svarmulighed4").addEventListener("click", () => {
-      console.log("svar1");
-      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
-        svar.classList.add("on_choice5");
-      })
-      document.querySelector(".svarmulighed4").classList.remove("on_choice5");
-      document.querySelector(".svarmulighed4 p").classList.add("on_choice2");
-      document.querySelector(".svarmulighed4 .tick_box div").classList.add("on_choice3");
-      document.querySelector(".svarmulighed4 .tick_box").classList.add("on_choice4");
-      point += 1;
-      nextQuestion();
-    });
+      point += 4;
+    })
     klon.querySelector(".svarmulighed5").addEventListener("click", () => {
-      console.log("svar1");
-      document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
-        svar.classList.add("on_choice5");
-      })
-      document.querySelector(".svarmulighed5").classList.remove("on_choice5");
-      document.querySelector(".svarmulighed5 p").classList.add("on_choice2");
-      document.querySelector(".svarmulighed5 .tick_box div").classList.add("on_choice3");
-      document.querySelector(".svarmulighed5 .tick_box").classList.add("on_choice4");
-      point += 1;
-      nextQuestion();
-    });
+      point += 5;
+    })
+
+    klon.querySelectorAll(".svarmulighed_wrap").forEach((svarmulighed) => {
+      svarmulighed.addEventListener("click", () => {
+        document.querySelectorAll(".svarmulighed_wrap").forEach((svar) => {
+          svar.classList.add("on_choice5");
+        })
+        svarmulighed.classList.remove("on_choice5");
+        svarmulighed.querySelector("p").classList.add("on_choice2");
+        svarmulighed.querySelector(".tick_box div").classList.add("on_choice3");
+        svarmulighed.querySelector(".tick_box").classList.add("on_choice4");
+        nextQuestion();
+      });
+    })
 
     dataFill.appendChild(klon); //indsæt klonen i databeholderen med appendChild
   });

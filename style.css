@@ -505,7 +505,7 @@ nav a h3 {
 
 @keyframes question_away4-kf {
   100% {
-    transform: translate(100px, 20px);
+    transform: translate(100px, 200px);
   }
 }
 
@@ -531,7 +531,7 @@ nav a h3 {
 
 @keyframes question_in2-kf {
   0% {
-    transform: scale(1.5);
+    transform: scale(2);
   }
 
   100% {
@@ -559,7 +559,7 @@ nav a h3 {
 
 @keyframes question_in4-kf {
   0% {
-    transform: translate(100px, -20px);
+    transform: translate(100px, -100px);
   }
 
   100% {
