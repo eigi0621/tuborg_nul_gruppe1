@@ -146,31 +146,6 @@ nav a h3 {
 
 
 
-.line {
-  position: fixed;
-  width: 1px;
-  height: 100vw;
-  top: 0;
-  background-color: #9C9E9F;
-  visibility: hidden;
-}
-
-.line1 {
-  left: 25vw;
-}
-
-.line2 {
-  left: 50vw;
-}
-
-.line3 {
-  left: 75vw;
-}
-
-
-
-
-
 
 
 
@@ -190,10 +165,99 @@ nav a h3 {
 .splash_wrap {
   width: 100vw;
   height: 100vh;
+  background-color: #FAC177;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash_inner {
+  width: 90vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash_text_wrap {
+  width: 70%;
+  display: block;
+}
+
+.start_quiz_h1 {
+  width: 100%;
+  color: #fff;
+  font-family: paralucent-condensed, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15vw;
+  line-height: 12vw;
+  text-transform: uppercase;
+  margin: 10px;
+  text-align: end;
+}
+
+.start_quiz_h1 span {
+  font-family: paralucent-condensed, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #093A82;
+}
+
+.splash_button_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start_quiz {
+  background-color: #fff;
+  color: #093A82;
+  font-size: 3vw;
+  padding: 2vw;
+  text-align: end;
+}
+
+.splash_img {
+  width: 30%;
+  height: 32vw;
+  margin-left: 4vw;
+  background-image: url(img/wet_can.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateY(1vw);
+}
+
+.splash_transition {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
   top: 0;
   left: 0;
+  background-color: #fff;
+  transform: translateX(100vw);
+  z-index: 2;
 }
+
+.splash_transition_animation {
+  animation: splash_transition_animation-kf 1s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+@keyframes splash_transition_animation-kf {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -210,6 +274,7 @@ nav a h3 {
   visibility: hidden;
   top: 0;
   left: 0;
+  z-index: 3;
 }
 
 .spg_section {
@@ -333,17 +398,8 @@ nav a h3 {
   opacity: 1;
 }
 
-
 .spg_section {
   visibility: hidden;
-}
-
-
-.start_quiz {
-  background-color: #093A82;
-  margin: 10px;
-  padding: 30px;
-  height: 100px;
 }
 
 
