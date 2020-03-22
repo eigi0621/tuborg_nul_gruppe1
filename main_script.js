@@ -127,8 +127,7 @@ function startQuestion() {
 function nextQuestion() {
   console.log(point);
 
-  if (spg > 0 && spg < 11) {
-    console.log(spg);
+  if (spg > 0 && spg < 20) {
 
     let this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
     this_spg.classList.add("on_choice");
@@ -146,9 +145,9 @@ function nextQuestion() {
       this_spg.querySelector(`.spg_nr`).classList.add("question_away4");
 
       spg++;
+      spg++;
       this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
       this_spg.style.visibility = "visible";
-      console.log(spg);
 
       setTimeout(function () {
         this_spg.querySelectorAll(`.svarmulighed_wrap`).forEach((svar) => {

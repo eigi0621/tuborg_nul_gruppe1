@@ -78,6 +78,9 @@ const init_pointer = (options) => {
       document.querySelectorAll(".spg_section").forEach((dialog) => {
         dialog.style.transform = `translate(${mouseX / 100}px, ${mouseY / 100}px)`;
       })
+      document.querySelectorAll(".img_section").forEach((dialog2) => {
+        dialog2.style.transform = `translate(${mouseX / -100}px, ${mouseY / -100}px)`;
+      })
     }, 1000)
 
     requestAnimationFrame(render)
