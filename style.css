@@ -1,7 +1,7 @@
 *,
 body {
   font-family: mr-eaves-xl-modern, sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   font-style: normal;
   letter-spacing: 1px;
   text-decoration: none;
@@ -60,7 +60,7 @@ h1 {
 
 h2 {
   font-family: paralucent, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
   font-style: normal;
   font-size: 2rem;
@@ -320,9 +320,17 @@ nav a h3 {
 .inner_overflow {
   width: 100%;
   overflow: hidden;
+  transition: 1s cubic-bezier(.4, .7, 0, 1);
+}
+
+.spg_section:nth-child(4n+1) .inner_overflow {
   background-color: #093A82;
   box-shadow: 10px 10px 40px rgba(9, 58, 130, 0.5);
-  transition: 1s cubic-bezier(.4, .7, 0, 1);
+}
+
+.spg_section:nth-child(4n+3) .inner_overflow {
+  background-color: #FAC177;
+  box-shadow: 10px 10px 40px rgba(250, 193, 119, 0.5);
 }
 
 .hover_scale {
@@ -348,13 +356,20 @@ nav a h3 {
 }
 
 .svarmulighed_wrap p {
-  color: #FAC177;
   display: inline-block;
   margin: 10px 0;
   line-height: 1.4rem;
   font-size: 1.2rem;
   opacity: 0.5;
   transition: .3s cubic-bezier(.3, 0, .2, 1);
+}
+
+.spg_section:nth-child(4n+1) .svarmulighed_wrap p {
+  color: #FAC177;
+}
+
+.spg_section:nth-child(4n+3) .svarmulighed_wrap p {
+  color: #093A82;
 }
 
 .tick_box {
@@ -371,13 +386,28 @@ nav a h3 {
   align-items: center;
 }
 
+.spg_section:nth-child(4n+1) .tick_box {
+  border: 2px solid #FAC177;
+}
+
+.spg_section:nth-child(4n+3) .tick_box {
+  border: 2px solid #093A82;
+}
+
 .tick_box div {
   width: 0px;
   height: 0px;
   border-radius: 20px;
-  background-color: #FAC177;
   opacity: 0.5;
   transition: .3s cubic-bezier(.3, 0, .2, 1);
+}
+
+.spg_section:nth-child(4n+1) .tick_box div {
+  background-color: #FAC177;
+}
+
+.spg_section:nth-child(4n+3) .tick_box div {
+  background-color: #093A82;
 }
 
 .svarmulighed_wrap:hover .tick_box {
@@ -406,17 +436,45 @@ nav a h3 {
 
 
 
-
-
 .img_section {
-  width: 400px;
-  height: 400px;
-  background-color: aqua;
-  z-index: 10;
+  visibility: hidden;
   position: absolute;
 }
 
+.img_container {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
+.move_quiz2 {
+  width: 400px;
+  height: 400px;
+}
+
+.inner_question_wrap2 {
+  width: 400px;
+  height: 400px;
+}
+
+.inner_overflow2 {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.img_section:nth-child(4n+2) .inner_overflow2 {
+  box-shadow: 10px 10px 40px rgba(250, 193, 119, 0.5);
+}
+
+.img_section:nth-child(4n) .inner_overflow2 {
+  box-shadow: 10px 10px 40px rgba(9, 58, 130, 0.5);
+}
 
 
 
@@ -522,7 +580,7 @@ nav a h3 {
 @keyframes on_choice2-kf {
   100% {
     text-shadow: 0px 0px 10px rgba(190, 224, 217, 1);
-    color: #BEE0D9;
+    color: #FFF;
     opacity: 1;
     transform: scale(1.1);
     margin: 10px 0px;
@@ -535,7 +593,7 @@ nav a h3 {
 
 @keyframes on_choice3-kf {
   100% {
-    background-color: #BEE0D9;
+    background-color: #FFF;
     opacity: 1;
     width: 8px;
     height: 8px;
@@ -548,7 +606,7 @@ nav a h3 {
 
 @keyframes on_choice4-kf {
   100% {
-    border: 2px solid #BEE0D9;
+    border: 2px solid #FFF;
     opacity: 1;
     box-shadow: 0px 0px 20px rgba(190, 224, 217, 1);
     transform: scale(1.5);

@@ -79,7 +79,7 @@ const init_pointer = (options) => {
         dialog.style.transform = `translate(${mouseX / 100}px, ${mouseY / 100}px)`;
       })
       document.querySelectorAll(".img_section").forEach((dialog2) => {
-        dialog2.style.transform = `translate(${mouseX / -100}px, ${mouseY / -100}px)`;
+        dialog2.style.transform = `translate(${mouseX / -50}px, ${mouseY / -50}px)`;
       })
     }, 1000)
 
