@@ -212,16 +212,32 @@ nav a h3 {
 }
 
 .start_quiz {
-  background-color: #fff;
-  color: #093A82;
+  background-color: #093A82;
+  color: #FAC177;
   font-size: 3vw;
   padding: 2vw;
   text-align: end;
-  transition: 1s cubic-bezier(.4, .7, 0, 1);
+  transition: .3s cubic-bezier(.3, 0, .2, 1);
+  animation: start_quiz_ani-kf 1s infinite alternate both;
 }
 
 .start_quiz:hover {
+  background-color: #fff;
+  color: #093A82;
+  animation-play-state: paused;
   transform: scale(1.1);
+}
+
+@keyframes start_quiz_ani-kf {
+  0% {
+    transform: scale(1);
+    animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  }
+
+  100% {
+    transform: scale(1.1);
+    animation-timing-function: cubic-bezier(0.11, 0, 0.5, 0);
+  }
 }
 
 .splash_img {
@@ -245,13 +261,27 @@ nav a h3 {
   z-index: 2;
 }
 
-.splash_transition_animation {
-  animation: splash_transition_animation-kf 1s cubic-bezier(0.76, 0, 0.24, 1) both;
+.splash_transition_animation_in {
+  animation: splash_transition_animation_in-kf 1s cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
-@keyframes splash_transition_animation-kf {
+@keyframes splash_transition_animation_in-kf {
   100% {
     transform: translateX(0);
+  }
+}
+
+.splash_transition_animation_out {
+  animation: splash_transition_animation_out-kf 1s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+@keyframes splash_transition_animation_out-kf {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100vw);
   }
 }
 
@@ -535,8 +565,8 @@ nav a h3 {
 
 .meter_gradient {
   width: 50vw;
-  background-image: linear-gradient(90deg, #003F2A, #093A82);
-  margin-bottom: 5vw;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), #093A82);
+  margin-bottom: 7vw;
 }
 
 .meter_counter {
@@ -549,29 +579,23 @@ nav a h3 {
   transform: translateX(25vw);
 }
 
-.meter_ite1 {
-  transform: translateX(10vw);
-}
-
-.meter_ite2 {
-  transform: translateX(45vw);
-}
-
-.meter_ite3 {
-  transform: translateX(25vw);
-}
-
-.meter_ite4 {
-  transform: translateX(0);
-}
-
 .meter_section p {
+  width: 22vw;
   font-size: 2vw;
-  margin: 0 0 -3vw 2vw;
+  margin: -3vw 17vw 0 17vw;
   padding: 2vw;
   background-color: #093A82;
   color: #fff;
+  text-align: center;
   opacity: 0;
+  transition: .3s cubic-bezier(.3, 0, .2, 1);
+}
+
+.meter_section p:hover {
+  width: 24.2vw;
+  font-size: 2.2vw;
+  margin: -3.3vw 15.9vw 0 15.9vw;
+  padding: 2.2vw;
 }
 
 .slide_up {

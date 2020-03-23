@@ -20,6 +20,16 @@ function start() {
   hentJSON();
 
   document.querySelector(".start_quiz").addEventListener("click", startQuestion);
+  document.querySelector("#til_forside").addEventListener("click", () => {
+    removeQuestions();
+    document.querySelector(".splash_transition").classList.remove("splash_transition_animation_in");
+    document.querySelector(".splash_transition").classList.add("splash_transition_animation_out");
+    document.querySelector(".meter_section").classList.remove("splash_transition_animation_in");
+    document.querySelector(".meter_section").classList.add("splash_transition_animation_out");
+    document.querySelector(".question_wrap").classList.remove("splash_transition_animation_in");
+    document.querySelector(".question_wrap").classList.add("splash_transition_animation_out");
+  });
+
 }
 
 //hent JSON, når den er loadet - derefter kald visToej
@@ -93,12 +103,9 @@ function removeQuestions() {
   let this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
   let this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
 
-  document.querySelectorAll(".spg_section").forEach((spgl) => {
-    spgl.style.visibility = "hidden";
-  })
-  document.querySelectorAll(".move_quiz2").forEach((quiz) => {
-    quiz.style.visibility = "hidden";
-  })
+
+  document.querySelector(".question_wrap").classList.remove("splash_transition_animation_out");
+  document.querySelector(".question_wrap").classList.add("splash_transition_animation_in");
 
   document.querySelectorAll(".spg_section").forEach((spgml) => {
     spgml.querySelector(`.inner_overflow`).classList.remove("question_in");
@@ -110,6 +117,8 @@ function removeQuestions() {
     spgml.querySelector(`.inner_question_wrap`).classList.add("question_away2");
     spgml.querySelector(`.move_quiz`).classList.add("question_away3a");
     spgml.querySelector(`.spg_nr`).classList.add("question_away4");
+
+    spgml.classList.remove("on_choice");
   })
   document.querySelectorAll(".img_section").forEach((imgsc) => {
     imgsc.querySelector(`.inner_overflow2`).classList.remove("question_in");
@@ -129,16 +138,22 @@ function removeQuestions() {
   document.querySelector(`.inner_question_wrap3`).classList.add("question_away2");
   document.querySelector(`.move_quiz3`).classList.add("question_away3c");
 
-  document.querySelector(".meter_section p").classList.remove("slide_up");
-  document.querySelector(".meter_section p").classList.add("slide_down");
-
   setTimeout(function () {
     document.querySelector(".meter_section").style.visibility = "hidden";
+    document.querySelectorAll(".spg_section").forEach((spgl) => {
+      spgl.style.visibility = "hidden";
+    })
+    document.querySelectorAll(".move_quiz2").forEach((quiz) => {
+      quiz.style.visibility = "hidden";
+    })
   }, 1000)
 }
 
 function startQuestion() {
-  document.querySelector(".splash_transition").classList.add("splash_transition_animation");
+  document.querySelector(".question_wrap").classList.remove("splash_transition_animation_out");
+  document.querySelector(".question_wrap").classList.add("splash_transition_animation_in");
+  document.querySelector(".splash_transition").classList.remove("splash_transition_animation_out");
+  document.querySelector(".splash_transition").classList.add("splash_transition_animation_in");
   let this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
   let this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
 
@@ -171,6 +186,9 @@ function startQuestion() {
     this_spg2.querySelector(`.inner_overflow2`).classList.add("question_in");
     this_spg2.querySelector(`.inner_question_wrap2`).classList.add("question_in2");
     this_spg2.querySelector(`.move_quiz2`).classList.add("question_in3b");
+
+    document.querySelector(".meter_section").classList.remove("splash_transition_animation_out");
+    document.querySelector(".meter_section").classList.add("splash_transition_animation_in");
   }, 1000)
 }
 
@@ -310,27 +328,30 @@ function meterAnimation() {
 
     Scrambler({
       target: ".meter_wrap h2",
-      random: [2000, 4000],
+      random: [100, 4000],
       speed: 100,
       afterAll: function () {
         document.querySelector(".meter_section p").classList.remove("slide_down");
         document.querySelector(".meter_section p").classList.add("slide_up");
-        document.querySelector(".meter_section p").addEventListener("click", removeQuestions);
-        document.querySelector(".meter_section p").addEventListener("click", startQuestion);
+        document.querySelector(".meter_section p").addEventListener("click", () => {
+          removeQuestions();
+          document.querySelector(".splash_transition").classList.remove("splash_transition_animation_in");
+          document.querySelector(".splash_transition").classList.add("splash_transition_animation_out");
+          document.querySelector(".meter_section").classList.remove("splash_transition_animation_in");
+          document.querySelector(".meter_section").classList.add("splash_transition_animation_out");
+        });
       }
     });
     console.log(meterPoints + "points");
 
 
-    document.querySelector(".meter_counter").classList.add("meter_ite1");
+    document.querySelector(".meter_counter").style.transform = `translateX(10vw)`;
     setTimeout(function () {
-      document.querySelector(".meter_counter").classList.add("meter_ite2");
+      document.querySelector(".meter_counter").style.transform = `translateX(45vw)`;
       setTimeout(function () {
-        document.querySelector(".meter_counter").classList.add("meter_ite3");
+        document.querySelector(".meter_counter").style.transform = `translateX(25vw)`;
         setTimeout(function () {
-          document.querySelector(".meter_counter").classList.remove("meter_ite1", "meter_ite2", "meter_ite3");
-          document.querySelector(".meter_counter").classList.add("meter_ite4");
-          document.querySelector(".meter_ite4").style.transform = `translateX(${meterPoints}vw)`;
+          document.querySelector(".meter_counter").style.transform = `translateX(${meterPoints}vw)`;
         }, 1000)
       }, 1000)
     }, 1000)
