@@ -20,7 +20,6 @@ function start() {
   hentJSON();
 
   document.querySelector(".start_quiz").addEventListener("click", startQuestion);
-
 }
 
 //hent JSON, når den er loadet - derefter kald visToej
@@ -52,7 +51,7 @@ function visToej() {
     klon.querySelector(".svarmulighed3 p").textContent = `${element.gsx$valg3.$t}`;
     klon.querySelector(".svarmulighed4 p").textContent = `${element.gsx$valg4.$t}`;
     klon.querySelector(".svarmulighed5 p").textContent = `${element.gsx$valg5.$t}`;
-    klon.querySelector(".spg_nr").textContent = `spørgsmål ${element.gsx$spgnr.$t} ud af 10`;
+    klon.querySelector(".spg_nr").textContent = `spørgsmål ${element.gsx$spgnr.$t} ud af 8`;
     klon.querySelector(".img_container").style.backgroundImage = `url(img/${element.gsx$spgnr.$t}.jpg)`;
 
     klon.querySelector(".svarmulighed1").addEventListener("click", () => {
@@ -87,6 +86,20 @@ function visToej() {
 }
 
 function removeQuestions() {
+  point = 0;
+  spg = 1;
+  spg2 = 2;
+
+  let this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
+  let this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
+
+  document.querySelectorAll(".spg_section").forEach((spgl) => {
+    spgl.style.visibility = "hidden";
+  })
+  document.querySelectorAll(".move_quiz2").forEach((quiz) => {
+    quiz.style.visibility = "hidden";
+  })
+
   document.querySelectorAll(".spg_section").forEach((spgml) => {
     spgml.querySelector(`.inner_overflow`).classList.remove("question_in");
     spgml.querySelector(`.inner_question_wrap`).classList.remove("question_in2");
@@ -107,6 +120,21 @@ function removeQuestions() {
     imgsc.querySelector(`.inner_question_wrap2`).classList.add("question_away2");
     imgsc.querySelector(`.move_quiz2`).classList.add("question_away3b");
   })
+
+  document.querySelector(`.inner_overflow3`).classList.remove("question_in");
+  document.querySelector(`.inner_question_wrap3`).classList.remove("question_in2");
+  document.querySelector(`.move_quiz3`).classList.remove("question_in3c");
+
+  document.querySelector(`.inner_overflow3`).classList.add("question_away");
+  document.querySelector(`.inner_question_wrap3`).classList.add("question_away2");
+  document.querySelector(`.move_quiz3`).classList.add("question_away3c");
+
+  document.querySelector(".meter_section p").classList.remove("slide_up");
+  document.querySelector(".meter_section p").classList.add("slide_down");
+
+  setTimeout(function () {
+    document.querySelector(".meter_section").style.visibility = "hidden";
+  }, 1000)
 }
 
 function startQuestion() {
@@ -115,7 +143,7 @@ function startQuestion() {
   let this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
 
   this_spg.style.visibility = "visible";
-  this_spg2.style.visibility = "visible";
+  this_spg2.querySelector(".move_quiz2").style.visibility = "visible";
   this_spg.querySelectorAll(`.svarmulighed_wrap`).forEach((svar) => {
     svar.querySelector("p").classList.remove("on_choice2");
     svar.querySelector(".tick_box div").classList.remove("on_choice3");
@@ -149,7 +177,9 @@ function startQuestion() {
 function nextQuestion() {
   console.log(point);
 
-  if (spg > 0 && spg < 20) {
+  if (spg > 0 && spg < 15) {
+
+    console.log(spg + "spg nr.")
 
     let this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
     let this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
@@ -182,7 +212,7 @@ function nextQuestion() {
       this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
       this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
       this_spg.style.visibility = "visible";
-      this_spg2.style.visibility = "visible";
+      this_spg2.querySelector(".move_quiz2").style.visibility = "visible";
 
       setTimeout(function () {
         this_spg.querySelectorAll(`.svarmulighed_wrap`).forEach((svar) => {
@@ -213,7 +243,98 @@ function nextQuestion() {
         this_spg2.querySelector(`.move_quiz2`).classList.add("question_in3b");
       }, 1000)
     }, 300)
+  } else {
+    meterAnimation();
   }
+}
+
+
+function meterAnimation() {
+
+  let this_spg = document.querySelector(`.spg_section:nth-child(${spg})`);
+  let this_spg2 = document.querySelector(`.img_section:nth-child(${spg2})`);
+  this_spg.classList.add("on_choice");
+
+  this_spg2.querySelector(`.inner_overflow2`).classList.remove("question_in");
+  this_spg2.querySelector(`.inner_question_wrap2`).classList.remove("question_in2");
+  this_spg2.querySelector(`.move_quiz2`).classList.remove("question_in3b");
+
+  this_spg2.querySelector(`.inner_overflow2`).classList.add("question_away");
+  this_spg2.querySelector(`.inner_question_wrap2`).classList.add("question_away2");
+  this_spg2.querySelector(`.move_quiz2`).classList.add("question_away3b");
+
+  setTimeout(function () {
+    this_spg.querySelector(`.inner_overflow`).classList.remove("question_in");
+    this_spg.querySelector(`.inner_question_wrap`).classList.remove("question_in2");
+    this_spg.querySelector(`.move_quiz`).classList.remove("question_in3a");
+    this_spg.querySelector(`.spg_nr`).classList.remove("question_in4");
+
+    this_spg.querySelector(`.inner_overflow`).classList.add("question_away");
+    this_spg.querySelector(`.inner_question_wrap`).classList.add("question_away2");
+    this_spg.querySelector(`.move_quiz`).classList.add("question_away3a");
+    this_spg.querySelector(`.spg_nr`).classList.add("question_away4");
+  }, 300)
+
+
+
+  setTimeout(function () {
+    document.querySelector(".meter_section").style.visibility = "visible";
+
+    document.querySelector(`.inner_overflow3`).classList.remove("question_away");
+    document.querySelector(`.inner_question_wrap3`).classList.remove("question_away2");
+    document.querySelector(`.move_quiz3`).classList.remove("question_away3c");
+
+    document.querySelector(`.inner_overflow3`).classList.add("question_in");
+    document.querySelector(`.inner_question_wrap3`).classList.add("question_in2");
+    document.querySelector(`.move_quiz3`).classList.add("question_in3c");
+
+
+
+    let meterWidth = 50;
+    let maxPoint = 40;
+    let meterPoints = meterWidth / maxPoint * point;
+
+    if (meterPoints < 16) {
+      document.querySelector(".meter_wrap h2").innerHTML = "Du skal vist øve dig lidt på at drikke Tuborg Nul!"
+    } else if (meterPoints < 24) {
+      document.querySelector(".meter_wrap h2").innerHTML = "Du viser gode takter, men du har ikke opnået dit fulde potentiale!"
+    } else if (meterPoints < 32) {
+      document.querySelector(".meter_wrap h2").innerHTML = "Slet ikke dårligt - du begynder at få smag for Tuborg Nul!"
+    } else if (meterPoints < 40) {
+      document.querySelector(".meter_wrap h2").innerHTML = "Du er rigtig godt på vej til at blive fuldblodig Tuborg-Nul-drikker!"
+    } else {
+      document.querySelector(".meter_wrap h2").innerHTML = "Du er en sand Tuborg Nul kender."
+    }
+
+
+
+    Scrambler({
+      target: ".meter_wrap h2",
+      random: [2000, 4000],
+      speed: 100,
+      afterAll: function () {
+        document.querySelector(".meter_section p").classList.remove("slide_down");
+        document.querySelector(".meter_section p").classList.add("slide_up");
+        document.querySelector(".meter_section p").addEventListener("click", removeQuestions);
+        document.querySelector(".meter_section p").addEventListener("click", startQuestion);
+      }
+    });
+    console.log(meterPoints + "points");
+
+
+    document.querySelector(".meter_counter").classList.add("meter_ite1");
+    setTimeout(function () {
+      document.querySelector(".meter_counter").classList.add("meter_ite2");
+      setTimeout(function () {
+        document.querySelector(".meter_counter").classList.add("meter_ite3");
+        setTimeout(function () {
+          document.querySelector(".meter_counter").classList.remove("meter_ite1", "meter_ite2", "meter_ite3");
+          document.querySelector(".meter_counter").classList.add("meter_ite4");
+          document.querySelector(".meter_ite4").style.transform = `translateX(${meterPoints}vw)`;
+        }, 1000)
+      }, 1000)
+    }, 1000)
+  }, 1000)
 }
 
 function previousQuestion() {
