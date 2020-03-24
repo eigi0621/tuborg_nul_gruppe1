@@ -309,19 +309,25 @@ function meterAnimation() {
 
 
     let meterWidth = 50;
-    let maxPoint = 40;
-    let meterPoints = meterWidth / maxPoint * point;
+    let maxPoint = 32;
+    let meterPoints = meterWidth / maxPoint * (point - 8) + 1;
 
-    if (meterPoints < 16) {
+    if (meterPoints < 2) {
+      document.querySelector(".meter_wrap h2").innerHTML = "Hey! Du tog jo bare den første mulighed på alle spørgsmålene?!"
+      meterPoints = 0;
+    } else if (meterPoints < 12) {
       document.querySelector(".meter_wrap h2").innerHTML = "Du skal vist øve dig lidt på at drikke Tuborg Nul!"
-    } else if (meterPoints < 24) {
+    } else if (meterPoints < 22) {
       document.querySelector(".meter_wrap h2").innerHTML = "Du viser gode takter, men du har ikke opnået dit fulde potentiale!"
     } else if (meterPoints < 32) {
       document.querySelector(".meter_wrap h2").innerHTML = "Slet ikke dårligt - du begynder at få smag for Tuborg Nul!"
     } else if (meterPoints < 40) {
       document.querySelector(".meter_wrap h2").innerHTML = "Du er rigtig godt på vej til at blive fuldblodig Tuborg-Nul-drikker!"
-    } else {
+    } else if (meterPoints < 50) {
       document.querySelector(".meter_wrap h2").innerHTML = "Du er en sand Tuborg Nul kender."
+    } else {
+      document.querySelector(".meter_wrap h2").innerHTML = "Hey! Du tog jo bare den sidste mulighed på alle spørgsmålene?!"
+      meterPoints = 0;
     }
 
 

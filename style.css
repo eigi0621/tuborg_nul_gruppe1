@@ -49,13 +49,17 @@ body::-webkit-scrollbar {
   height: 150px;
 }
 
+.space5 {
+  height: 100vh;
+}
+
 h1 {
   font-family: paralucent, sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 3.3rem;
+  font-size: 5rem;
   line-height: 3rem;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 h2 {
@@ -98,10 +102,7 @@ p {
 
 header {
   position: fixed;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  z-index: 100;
+  z-index: 7;
   top: 0;
   left: 0;
 }
@@ -109,12 +110,12 @@ header {
 nav {
   width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 nav a {
   display: inline-block;
-  padding: 5px;
+  padding: 5px 5px 8px 5px;
   margin: 0 10px;
 }
 
@@ -122,9 +123,17 @@ nav a h3 {
   font-family: paralucent, sans-serif;
   font-weight: 700;
   font-style: normal;
+  color: #093A82;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 1px;
+  transition: .3s cubic-bezier(.3, 0, .2, 1);
+  opacity: .7
+}
+
+nav a h3:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 
@@ -148,25 +157,58 @@ nav a h3 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-#main_container {
+.main_width {
   width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
+
+#barchart {
+  max-width: 500px;
+}
+
+#chart line {
+  stroke: #555;
+  stroke-width: .5;
+}
+
+#chart text {
+  font-size: 5px;
+  font-family: paralucent, sans-serif;
+}
+
+.bars {
+  stroke-width: 20;
+  stroke: orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .splash_wrap {
   width: 100vw;
   height: 100vh;
   background-color: #FAC177;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,7 +236,7 @@ nav a h3 {
   font-size: 15vw;
   line-height: 12vw;
   text-transform: uppercase;
-  margin: 10px;
+  margin: 1vw;
   text-align: end;
 }
 
@@ -314,7 +356,7 @@ nav a h3 {
 
 .spg_section {
   position: absolute;
-  top: 5vh;
+  top: 10vh;
   visibility: visible;
   z-index: 4;
 }
@@ -383,6 +425,7 @@ nav a h3 {
 .inner_question_wrap h2 {
   padding: 0 0 20px 0;
   margin: 0;
+  font-size: 3rem;
 }
 
 .svarmulighed_wrap {
@@ -657,7 +700,6 @@ nav a h3 {
     position: fixed;
     z-index: 81;
     pointer-events: none;
-    transition-timing-function: steps(5, jump-start);
   }
 
   #pointer-ring {
@@ -671,7 +713,6 @@ nav a h3 {
     position: fixed;
     z-index: 80;
     pointer-events: none;
-    transition-timing-function: steps(5, jump-start);
     mix-blend-mode: exclusion;
   }
 
@@ -961,6 +1002,14 @@ nav a h3 {
 
 
 @media screen and (max-width: 900px) {
+  nav a {
+    margin: 0 5px;
+  }
+
+  nav a h3 {
+    font-size: .7rem;
+  }
+
   .spg_section {
     top: 10vh;
   }
@@ -1049,7 +1098,7 @@ nav a h3 {
   .move_quiz2 {
     width: 65vw;
     height: 80vw;
-    transform: translateX(20vw);
+    transform: translateX(15.5vw);
   }
 
   .inner_question_wrap2 {
