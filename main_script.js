@@ -30,6 +30,8 @@ function start() {
     document.querySelector(".question_wrap").classList.add("splash_transition_animation_out");
   });
 
+
+  //thisBar1();
 }
 
 //hent JSON, når den er loadet - derefter kald visToej
@@ -364,6 +366,190 @@ function meterAnimation() {
   }, 1000)
 }
 
-function previousQuestion() {
+testYourself1();
 
+function testYourself1() {
+  var slider1 = document.querySelector("#slider1");
+  var vaerdi1 = document.querySelector("#vaerdi1");
+  var slider2a = document.querySelector("#slider2a");
+  var slider2b = document.querySelector("#slider2b");
+  var vaerdi2a = document.querySelector("#vaerdi2a");
+  var vaerdi2b = document.querySelector("#vaerdi2b");
+  var slider3a = document.querySelector("#slider3a");
+  var slider3b = document.querySelector("#slider3b");
+  var vaerdi3a = document.querySelector("#vaerdi3a");
+  var vaerdi3b = document.querySelector("#vaerdi3b");
+
+  slider1a.oninput = function () {
+    document.querySelectorAll("#barchart1 .bars line").forEach((bar) => {
+      bar.style.transition = "0s cubic-bezier(0.76, 0, 0.24, 1)";
+    })
+    document.querySelector("#barchart1 .bars line:nth-child(1)").style.transform = `translateY(${this.value / 10}px)`;
+    document.querySelector("#barchart1 .bars line:nth-child(2)").style.transform = `translateY(${100 - this.value / 10}px)`;
+    vaerdi1a.textContent = `${Math.round(this.value / 10)}%`
+    vaerdi1b.textContent = `${100 - Math.round(this.value / 10)}%`
+    slider1b.value = `${1000 - this.value}`;
+  }
+  slider1b.oninput = function () {
+    document.querySelectorAll("#barchart1 .bars line").forEach((bar) => {
+      bar.style.transition = "0s cubic-bezier(0.76, 0, 0.24, 1)";
+    })
+    document.querySelector("#barchart1 .bars line:nth-child(2)").style.transform = `translateY(${this.value / 10}px)`;
+    document.querySelector("#barchart1 .bars line:nth-child(1)").style.transform = `translateY(${100 - this.value / 10}px)`;
+    vaerdi1b.textContent = `${Math.round(this.value / 10)}%`
+    vaerdi1a.textContent = `${100 - Math.round(this.value / 10)}%`
+    slider1a.value = `${1000 - this.value}`;
+  }
+  slider2a.oninput = function () {
+    document.querySelectorAll("#barchart2 .bars line").forEach((bar) => {
+      bar.style.transition = "0s cubic-bezier(0.76, 0, 0.24, 1)";
+    })
+    document.querySelector("#barchart2 .bars line:nth-child(1)").style.transform = `translateY(${this.value / 10 + 52.1}px)`;
+    document.querySelector("#barchart2 .bars line:nth-child(2)").style.transform = `translateY(${47.9 - (this.value / 10) + 52.1}px)`;
+    vaerdi2a.textContent = `${Math.round(this.value / 10)}%`
+    vaerdi2b.textContent = `${Math.round(47.9 - (this.value / 10))}%`
+    slider2b.value = `${479 - this.value}`;
+  }
+  slider2b.oninput = function () {
+    document.querySelectorAll("#barchart1 .bars line").forEach((bar) => {
+      bar.style.transition = "0s cubic-bezier(0.76, 0, 0.24, 1)";
+    })
+    document.querySelector("#barchart2 .bars line:nth-child(2)").style.transform = `translateY(${this.value / 10}px)`;
+    document.querySelector("#barchart2 .bars line:nth-child(1)").style.transform = `translateY(${100 - this.value / 10}px)`;
+    vaerdi2b.textContent = `${Math.round(this.value / 10)}%`
+    vaerdi2a.textContent = `${47.9 - Math.round(this.value / 10)}%`
+    slider2a.value = `${479 - this.value}`;
+  }
+  slider3a.oninput = function () {
+    document.querySelectorAll("#barchart3 .bars line").forEach((bar) => {
+      bar.style.transition = "0s cubic-bezier(0.76, 0, 0.24, 1)";
+    })
+    document.querySelector("#barchart3 .bars line:nth-child(1)").style.transform = `translateY(${100 - this.value / 10}px)`;
+    vaerdi3a.textContent = `${Math.round(this.value / 10)}%`
+  }
+  slider3b.oninput = function () {
+    document.querySelector("#barchart3 .bars line:nth-child(2)").style.transform = `translateY(${100 - this.value / 10}px)`;
+    vaerdi3b.textContent = `${Math.round(this.value / 10)}%`
+  }
+
+  document.querySelector("#test1").addEventListener("click", () => {
+    const valuesChart1 = [69.4, 30.6];
+    document.querySelectorAll("#barchart1 .bars line").forEach((bar, i) => {
+      bar.style.transition = "1s cubic-bezier(0.76, 0, 0.24, 1)";
+      bar.style.transform = `translateY(${valuesChart1[i]}px)`;
+      console.log(i);
+    })
+
+    let bar1Loop = true;
+
+    setInterval(function () {
+      if (bar1Loop == true) {
+        let bar1a = document.querySelector("#barchart1 .bars line:nth-child(1)");
+        let comp1a = window.getComputedStyle(bar1a).getPropertyValue("transform");
+
+        var values1a = comp1a.split('(')[1];
+        values1a = values1a.split(')')[0];
+        values1a = values1a.split(', ');
+        var bar1aVal = values1a[5];
+        console.log(bar1aVal);
+        vaerdi1a.textContent = `${Math.round(bar1aVal)}%`;
+        slider1a.value = `${(bar1aVal * 10)}`;
+
+        let bar1b = document.querySelector("#barchart1 .bars line:nth-child(2)");
+        let comp1b = window.getComputedStyle(bar1b).getPropertyValue("transform");
+
+        var values1b = comp1b.split('(')[1];
+        values1b = values1b.split(')')[0];
+        values1b = values1b.split(', ');
+        var bar1bVal = values1b[5];
+        console.log(bar1bVal);
+        vaerdi1b.textContent = `${Math.round(bar1bVal)}%`;
+        slider1b.value = `${(bar1bVal * 10)}`;
+      }
+    }, 20)
+
+    setTimeout(function () {
+      bar1Loop = false;
+    }, 1000)
+  });
+  document.querySelector("#test2").addEventListener("click", () => {
+    const valuesChart2 = [41.1, 6.8];
+    document.querySelectorAll("#barchart2 .bars line").forEach((bar, i) => {
+      bar.style.transition = "1s cubic-bezier(0.76, 0, 0.24, 1)";
+      bar.style.transform = `translateY(${100 - valuesChart2[i]}px)`;
+      console.log(i);
+    })
+
+    let bar2Loop = true;
+
+    setInterval(function () {
+      if (bar2Loop == true) {
+        let bar2a = document.querySelector("#barchart2 .bars line:nth-child(2)");
+        let comp2a = window.getComputedStyle(bar2a).getPropertyValue("transform");
+
+        var values2a = comp2a.split('(')[1];
+        values2a = values2a.split(')')[0];
+        values2a = values2a.split(', ');
+        var bar2aVal = values2a[5];
+        console.log(bar2aVal);
+        vaerdi2a.textContent = `${Math.round(bar2aVal)}%`;
+        slider2a.value = `${(bar2aVal * 10)}`;
+
+        let bar2b = document.querySelector("#barchart2 .bars line:nth-child(2)");
+        let comp2b = window.getComputedStyle(bar2b).getPropertyValue("transform");
+
+        var values2b = comp2b.split('(')[1];
+        values2b = values2b.split(')')[0];
+        values2b = values2b.split(', ');
+        var bar2bVal = values2b[5];
+        console.log(bar2bVal);
+        vaerdi2b.textContent = `${Math.round(bar2bVal)}%`;
+        slider2b.value = `${(bar2bVal * 10)}`;
+      }
+    }, 20)
+
+    setTimeout(function () {
+      bar2Loop = false;
+    }, 1000)
+  });
+  document.querySelector("#test3").addEventListener("click", () => {
+    const valuesChart3 = [50.9, 41.4];
+    document.querySelectorAll("#barchart3 .bars line").forEach((bar, i) => {
+      bar.style.transition = "1s cubic-bezier(0.76, 0, 0.24, 1)";
+      bar.style.transform = `translateY(${100 - valuesChart3[i]}px)`;
+      console.log(i);
+    })
+
+    let bar3Loop = true;
+
+    setInterval(function () {
+      if (bar3Loop == true) {
+        let bar3a = document.querySelector("#barchart3 .bars line:nth-child(1)");
+        let comp3a = window.getComputedStyle(bar3a).getPropertyValue("transform");
+
+        var values3a = comp3a.split('(')[1];
+        values3a = values3a.split(')')[0];
+        values3a = values3a.split(', ');
+        var bar3aVal = values3a[5];
+        console.log(bar3aVal);
+        vaerdi3a.textContent = `${100 - Math.round(bar3aVal)}%`;
+        slider3a.value = `${1000 - (bar3aVal * 10)}`;
+
+        let bar3b = document.querySelector("#barchart3 .bars line:nth-child(2)");
+        let comp3b = window.getComputedStyle(bar3b).getPropertyValue("transform");
+
+        var values3b = comp3b.split('(')[1];
+        values3b = values3b.split(')')[0];
+        values3b = values3b.split(', ');
+        var bar3bVal = values3b[5];
+        console.log(bar3bVal);
+        vaerdi3b.textContent = `${100 - Math.round(bar3bVal)}%`;
+        slider3b.value = `${1000 - (bar3bVal * 10)}`;
+      }
+    }, 20)
+
+    setTimeout(function () {
+      bar3Loop = false;
+    }, 1000)
+  });
 }
