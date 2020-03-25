@@ -2,8 +2,8 @@ const pointer = document.createElement("div")
 pointer.id = "pointer-dot"
 const ring = document.createElement("div")
 ring.id = "pointer-ring"
-document.body.insertBefore(pointer, document.body.children[0])
-document.body.insertBefore(ring, document.body.children[0])
+document.body.insertBefore(pointer, document.body.children[5])
+document.body.insertBefore(ring, document.body.children[5])
 
 let mouseX = 100
 let mouseY = 100

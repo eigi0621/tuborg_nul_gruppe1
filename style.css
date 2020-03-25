@@ -13,13 +13,18 @@ body {
   overflow: -moz-scrollbars-none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background-color: #F0F1F2;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+html {
+  overflow-x: hidden;
 }
+
 
 
 
@@ -351,14 +356,13 @@ nav a h3:hover {
 .om_text_wrap {
   width: 100%;
   flex-basis: 400px;
-  padding-right: 20px;
+  padding-right: 40px;
   flex-grow: 1;
 }
 
 #anim {
   width: 100%;
   flex-basis: 400px;
-  padding-left: 20px;
   padding-top: 10px;
   flex-grow: 1;
 }
@@ -517,12 +521,11 @@ nav a h3:hover {
 
 
 
-
-
 .question_wrap {
   width: 100vw;
   height: 100vh;
   display: flex;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
   position: absolute;
