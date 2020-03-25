@@ -590,14 +590,16 @@ function testYourself() {
 
 
 window.onscroll = function () {
-  if (randomRunning == false) {
-    console.log("on scroll");
-    randomRunning = true;
-    window.requestAnimationFrame(function () {
-      randomDataPos1();
-      randomDataPos2();
-      randomDataPos3();
-    })
+  if (window.matchMedia("(min-width: 1060px)").matches) {
+    if (randomRunning == false) {
+      console.log("on scroll");
+      randomRunning = true;
+      window.requestAnimationFrame(function () {
+        randomDataPos1();
+        randomDataPos2();
+        randomDataPos3();
+      })
+    }
   }
 }
 

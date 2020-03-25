@@ -58,7 +58,7 @@ h1 {
   font-weight: 500;
   font-style: normal;
   font-size: 5rem;
-  line-height: 3rem;
+  line-height: 5rem;
   margin: 20px 0;
 }
 
@@ -162,6 +162,7 @@ nav a h3:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  overflow-x: hidden;
 }
 
 .chart_position {
@@ -172,12 +173,23 @@ nav a h3:hover {
 }
 
 .chart_div {
-  flex-basis: 300px;
+  flex-basis: 800px;
+  padding: 70px 0;
 }
 
-#barchart1 {
-  width: 300px;
-  max-width: 500px;
+
+@media screen and (min-width: 800px) {
+  .chart_div {
+    padding: 20px 20px;
+    flex-basis: 350px;
+  }
+}
+
+#barchart1,
+#barchart2,
+#barchart3 {
+  width: 100%;
+  max-width: 1000px;
 }
 
 #chart line {
