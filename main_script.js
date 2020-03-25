@@ -610,7 +610,6 @@ function randomDataPos1() {
   var vaerdi1a = document.querySelector("#vaerdi1a");
   var vaerdi1b = document.querySelector("#vaerdi1b");
 
-
   if (randomRunning == true) {
     let bar1a_rdm = document.querySelector("#barchart1 .bars line:nth-child(2)");
     let bar1b_rdm = document.querySelector("#barchart1 .bars line:nth-child(1)");
@@ -631,26 +630,24 @@ function randomDataPos1() {
     let comp1b_rdm = window.getComputedStyle(bar1b_rdm).getPropertyValue("transform");
 
     setInterval(function () {
-      if (randomRunning == true) {
-        bar1a_rdm = document.querySelector("#barchart1 .bars line:nth-child(2)");
-        bar1b_rdm = document.querySelector("#barchart1 .bars line:nth-child(1)");
-        comp1a_rdm = window.getComputedStyle(bar1a_rdm).getPropertyValue("transform");
-        comp1b_rdm = window.getComputedStyle(bar1b_rdm).getPropertyValue("transform");
+      bar1a_rdm = document.querySelector("#barchart1 .bars line:nth-child(2)");
+      bar1b_rdm = document.querySelector("#barchart1 .bars line:nth-child(1)");
+      comp1a_rdm = window.getComputedStyle(bar1a_rdm).getPropertyValue("transform");
+      comp1b_rdm = window.getComputedStyle(bar1b_rdm).getPropertyValue("transform");
 
-        var values1a_rdm = comp1a_rdm.split('(')[1];
-        values1a_rdm = values1a_rdm.split(')')[0];
-        values1a_rdm = values1a_rdm.split(', ');
-        var bar1a_rdmVal = values1a_rdm[5];
-        vaerdi1a.textContent = `${Math.round(bar1a_rdmVal)}%`;
-        slider1a.value = `${bar1a_rdmVal * 10}`;
+      var values1a_rdm = comp1a_rdm.split('(')[1];
+      values1a_rdm = values1a_rdm.split(')')[0];
+      values1a_rdm = values1a_rdm.split(', ');
+      var bar1a_rdmVal = values1a_rdm[5];
+      vaerdi1a.textContent = `${Math.round(bar1a_rdmVal)}%`;
+      slider1a.value = `${bar1a_rdmVal * 10}`;
 
-        var values1b_rdm = comp1b_rdm.split('(')[1];
-        values1b_rdm = values1b_rdm.split(')')[0];
-        values1b_rdm = values1b_rdm.split(', ');
-        var bar1b_rdmVal = values1b_rdm[5];
-        vaerdi1b.textContent = `${Math.round(bar1b_rdmVal)}%`;
-        slider1b.value = `${(bar1b_rdmVal * 10)}`;
-      }
+      var values1b_rdm = comp1b_rdm.split('(')[1];
+      values1b_rdm = values1b_rdm.split(')')[0];
+      values1b_rdm = values1b_rdm.split(', ');
+      var bar1b_rdmVal = values1b_rdm[5];
+      vaerdi1b.textContent = `${Math.round(bar1b_rdmVal)}%`;
+      slider1b.value = `${(bar1b_rdmVal * 10)}`;
     }, 20)
 
     setTimeout(function () {
@@ -687,26 +684,24 @@ function randomDataPos2() {
 
 
     setInterval(function () {
-      if (randomRunning == true) {
-        bar2a_rdm = document.querySelector("#barchart2 .bars line:nth-child(2)");
-        bar2b_rdm = document.querySelector("#barchart2 .bars line:nth-child(1)");
-        comp2a_rdm = window.getComputedStyle(bar2a_rdm).getPropertyValue("transform");
-        comp2b_rdm = window.getComputedStyle(bar2b_rdm).getPropertyValue("transform");
+      bar2a_rdm = document.querySelector("#barchart2 .bars line:nth-child(2)");
+      bar2b_rdm = document.querySelector("#barchart2 .bars line:nth-child(1)");
+      comp2a_rdm = window.getComputedStyle(bar2a_rdm).getPropertyValue("transform");
+      comp2b_rdm = window.getComputedStyle(bar2b_rdm).getPropertyValue("transform");
 
-        var values2a_rdm = comp2a_rdm.split('(')[1];
-        values2a_rdm = values2a_rdm.split(')')[0];
-        values2a_rdm = values2a_rdm.split(', ');
-        var bar2a_rdmVal = values2a_rdm[5];
-        vaerdi2a.textContent = `${Math.round(bar2a_rdmVal - 52.1)}%`;
-        slider2a.value = `${(bar2a_rdmVal * 10) - 521}`;
+      var values2a_rdm = comp2a_rdm.split('(')[1];
+      values2a_rdm = values2a_rdm.split(')')[0];
+      values2a_rdm = values2a_rdm.split(', ');
+      var bar2a_rdmVal = values2a_rdm[5];
+      vaerdi2a.textContent = `${Math.round(bar2a_rdmVal - 52.1)}%`;
+      slider2a.value = `${(bar2a_rdmVal * 10) - 521}`;
 
-        var values2b_rdm = comp2b_rdm.split('(')[1];
-        values2b_rdm = values2b_rdm.split(')')[0];
-        values2b_rdm = values2b_rdm.split(', ');
-        var bar2b_rdmVal = values2b_rdm[5];
-        vaerdi2b.textContent = `${Math.round(bar2b_rdmVal - 52.1)}%`;
-        slider2b.value = `${(bar2b_rdmVal * 10) - 521}`;
-      }
+      var values2b_rdm = comp2b_rdm.split('(')[1];
+      values2b_rdm = values2b_rdm.split(')')[0];
+      values2b_rdm = values2b_rdm.split(', ');
+      var bar2b_rdmVal = values2b_rdm[5];
+      vaerdi2b.textContent = `${Math.round(bar2b_rdmVal - 52.1)}%`;
+      slider2b.value = `${(bar2b_rdmVal * 10) - 521}`;
     }, 20)
 
     setTimeout(function () {
@@ -743,26 +738,24 @@ function randomDataPos3() {
 
 
     setInterval(function () {
-      if (randomRunning == true) {
-        bar3a_rdm = document.querySelector("#barchart3 .bars line:nth-child(2)");
-        bar3b_rdm = document.querySelector("#barchart3 .bars line:nth-child(1)");
-        comp3a_rdm = window.getComputedStyle(bar3a_rdm).getPropertyValue("transform");
-        comp3b_rdm = window.getComputedStyle(bar3b_rdm).getPropertyValue("transform");
+      bar3a_rdm = document.querySelector("#barchart3 .bars line:nth-child(2)");
+      bar3b_rdm = document.querySelector("#barchart3 .bars line:nth-child(1)");
+      comp3a_rdm = window.getComputedStyle(bar3a_rdm).getPropertyValue("transform");
+      comp3b_rdm = window.getComputedStyle(bar3b_rdm).getPropertyValue("transform");
 
-        var values3a_rdm = comp3a_rdm.split('(')[1];
-        values3a_rdm = values3a_rdm.split(')')[0];
-        values3a_rdm = values3a_rdm.split(', ');
-        var bar3a_rdmVal = values3a_rdm[5];
-        vaerdi3a.textContent = `${Math.round(bar3a_rdmVal - 7.7)}%`;
-        slider3a.value = `${(bar3a_rdmVal * 10) - 77}`;
+      var values3a_rdm = comp3a_rdm.split('(')[1];
+      values3a_rdm = values3a_rdm.split(')')[0];
+      values3a_rdm = values3a_rdm.split(', ');
+      var bar3a_rdmVal = values3a_rdm[5];
+      vaerdi3a.textContent = `${Math.round(bar3a_rdmVal - 7.7)}%`;
+      slider3a.value = `${(bar3a_rdmVal * 10) - 77}`;
 
-        var values3b_rdm = comp3b_rdm.split('(')[1];
-        values3b_rdm = values3b_rdm.split(')')[0];
-        values3b_rdm = values3b_rdm.split(', ');
-        var bar3b_rdmVal = values3b_rdm[5];
-        vaerdi3b.textContent = `${Math.round(bar3b_rdmVal - 7.7)}%`;
-        slider3b.value = `${(bar3b_rdmVal * 10) - 77}`;
-      }
+      var values3b_rdm = comp3b_rdm.split('(')[1];
+      values3b_rdm = values3b_rdm.split(')')[0];
+      values3b_rdm = values3b_rdm.split(', ');
+      var bar3b_rdmVal = values3b_rdm[5];
+      vaerdi3b.textContent = `${Math.round(bar3b_rdmVal - 7.7)}%`;
+      slider3b.value = `${(bar3b_rdmVal * 10) - 77}`;
     }, 20)
 
     setTimeout(function () {
@@ -770,3 +763,49 @@ function randomDataPos3() {
     }, random3del)
   }
 }
+
+
+document.querySelector("#til_om").addEventListener("click", scrollToOm);
+document.querySelector("#til_data").addEventListener("click", scrollToData);
+document.querySelector("#til_forside").addEventListener("click", scrollToForside);
+
+function scrollToOm() {
+  var omTop = document.querySelector("#f_er0").getBoundingClientRect().top + window.pageYOffset - 50;
+  window.scroll({
+    top: omTop,
+    left: 0,
+    behavior: 'smooth'
+  });
+}
+
+function scrollToData() {
+  var dataTop = document.querySelector("#f_er1").getBoundingClientRect().top + window.pageYOffset - 50;
+  window.scroll({
+    top: dataTop,
+    left: 0,
+    behavior: 'smooth'
+  });
+}
+
+function scrollToForside() {
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+  });
+}
+
+
+
+
+
+
+
+
+var animation = bodymovin.loadAnimation({
+  container: document.querySelector("#anim"),
+  rederer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "ani/data.json"
+})

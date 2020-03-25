@@ -123,12 +123,12 @@ nav a h3 {
   font-family: paralucent, sans-serif;
   font-weight: 700;
   font-style: normal;
-  color: #093A82;
+  color: #151515;
   text-transform: uppercase;
   font-size: 1.2rem;
   letter-spacing: 1px;
   transition: .3s cubic-bezier(.3, 0, .2, 1);
-  opacity: .7
+  opacity: .7;
 }
 
 nav a h3:hover {
@@ -321,6 +321,54 @@ nav a h3:hover {
 .test_yourself:hover {
   transform: scale(1.1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.om_wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.om_text_wrap p {
+  font-size: 1.7rem;
+}
+
+.om_text_wrap {
+  width: 100%;
+  flex-basis: 400px;
+  padding-right: 20px;
+  flex-grow: 1;
+}
+
+#anim {
+  width: 100%;
+  flex-basis: 400px;
+  padding-left: 20px;
+  padding-top: 10px;
+  flex-grow: 1;
+}
+
+.svar {
+  color: #9C9E9F
+}
+
+
+
+
+
+
+
 
 
 
