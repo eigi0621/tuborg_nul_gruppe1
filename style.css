@@ -155,7 +155,11 @@ nav a h3:hover {
 
 
 
-
+#main_container {
+  overflow: hidden;
+  width: 100vw;
+  position: absolute;
+}
 
 .main_width {
   width: 100vw;
